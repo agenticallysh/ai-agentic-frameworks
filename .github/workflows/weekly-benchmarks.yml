@@ -1,0 +1,154 @@
+name: Weekly Framework Benchmarks
+
+on:
+  schedule:
+    # Run every Monday at 6 AM UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch: # Allow manual triggering
+
+env:
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+
+jobs:
+  benchmark-frameworks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        framework: [crewai, autogen, langchain, langgraph, semantic-kernel]
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+    - name: Install base dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest requests pandas matplotlib seaborn
+
+    - name: Install framework-specific dependencies
+      run: |
+        case "${{ matrix.framework }}" in
+          crewai)
+            pip install crewai crewai-tools
+            ;;
+          autogen)
+            pip install pyautogen
+            ;;
+          langchain)
+            pip install langchain langchain-openai langchain-community
+            ;;
+          langgraph)
+            pip install langgraph langchain
+            ;;
+          semantic-kernel)
+            pip install semantic-kernel
+            ;;
+        esac
+
+    - name: Run benchmark tests
+      run: |
+        python scripts/run_benchmarks.py \
+          --framework ${{ matrix.framework }} \
+          --output results/${{ matrix.framework }}_$(date +%Y-%m-%d).json
+
+    - name: Upload benchmark results
+      uses: actions/upload-artifact@v3
+      with:
+        name: benchmark-results-${{ matrix.framework }}
+        path: results/${{ matrix.framework }}_*.json
+
+  update-documentation:
+    needs: benchmark-frameworks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download all benchmark results
+      uses: actions/download-artifact@v3
+      with:
+        path: benchmark-results/
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install documentation dependencies
+      run: |
+        pip install jinja2 pandas matplotlib seaborn
+
+    - name: Generate updated benchmark documentation
+      run: |
+        python scripts/generate_benchmark_docs.py \
+          --results-dir benchmark-results/ \
+          --output-dir benchmarks/
+
+    - name: Update framework README files
+      run: |
+        python scripts/update_framework_readmes.py \
+          --results-dir benchmark-results/
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "hello@agentically.sh"
+        git config --local user.name "Agentically Bot"
+        git add .
+        git diff --staged --quiet || git commit -m "📊 Weekly benchmark update - $(date +%Y-%m-%d)"
+        git push
+
+  notify-updates:
+    needs: update-documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Send Discord notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        curl -H "Content-Type: application/json" \
+             -X POST \
+             -d '{
+               "content": "📊 **Weekly Benchmark Update Complete**",
+               "embeds": [{
+                 "title": "AI Agent Framework Benchmarks Updated",
+                 "description": "New performance data available for all tracked frameworks",
+                 "color": 3447003,
+                 "fields": [
+                   {
+                     "name": "📈 Updated Frameworks",
+                     "value": "CrewAI, AutoGen, LangChain, LangGraph, Semantic Kernel"
+                   },
+                   {
+                     "name": "🔗 View Results",
+                     "value": "[Interactive Benchmarks](https://www.agentically.sh/ai-agentic-frameworks/benchmarks/)"
+                   }
+                 ],
+                 "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)'"
+               }]
+             }' \
+             $DISCORD_WEBHOOK
+
+    - name: Update website via webhook
+      env:
+        WEBSITE_WEBHOOK: ${{ secrets.WEBSITE_WEBHOOK }}
+      run: |
+        curl -X POST \
+             -H "Content-Type: application/json" \
+             -H "Authorization: Bearer ${{ secrets.WEBHOOK_TOKEN }}" \
+             -d '{"action": "update_benchmarks", "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)'"}' \
+             $WEBSITE_WEBHOOK
