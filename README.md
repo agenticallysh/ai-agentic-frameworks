@@ -19,7 +19,7 @@ Not sure which framework to choose? Use our [interactive framework finder](https
 
 [View all 40+ frameworks with filters →](https://www.agentically.sh/ai-agentic-frameworks/all/)
 
-## 📊 This Week's Updates (Oct 22, 2024)
+## 📊 This Week's Updates (Oct 22, 2025)
 
 - 🚀 **CrewAI 0.12**: Native memory management added
 - 📈 **Trending**: SmolAgents +2,341 stars this week

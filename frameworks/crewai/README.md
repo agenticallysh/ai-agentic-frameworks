@@ -59,7 +59,7 @@ writer = Agent(
 
 # Define tasks
 research_task = Task(
-    description='Research the latest AI trends in 2024',
+    description='Research the latest AI trends in 2025',
     agent=researcher
 )
 

@@ -62,7 +62,7 @@ def main():
     researcher = create_basic_agent()
     
     # Define research topic
-    topic = "AI agent frameworks market trends 2024"
+    topic = "AI agent frameworks market trends 2025"
     
     # Create task
     research_task = create_research_task(researcher, topic)

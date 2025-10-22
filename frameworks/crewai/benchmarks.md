@@ -1,6 +1,6 @@
 # CrewAI Performance Benchmarks
 
-> Last updated: October 22, 2024 | [View interactive benchmarks →](https://www.agentically.sh/ai-agentic-frameworks/benchmarks/crewai/)
+> Last updated: October 22, 2025 | [View interactive benchmarks →](https://www.agentically.sh/ai-agentic-frameworks/benchmarks/crewai/)
 
 ## Overview
 
