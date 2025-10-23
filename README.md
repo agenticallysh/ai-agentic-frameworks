@@ -1,10 +1,10 @@
 # AI Agent Frameworks: Complete Guide & Comparison
 
 [![Weekly Update](https://img.shields.io/badge/Updated-Weekly-green.svg)](https://github.com/agenticallysh/ai-agentic-frameworks)
-[![Frameworks](https://img.shields.io/badge/Frameworks-40+-blue.svg)](https://www.agentically.sh/ai-agentic-frameworks/all/)
+[![Frameworks](https://img.shields.io/badge/Frameworks-45+-blue.svg)](https://www.agentically.sh/ai-agentic-frameworks/all/)
 [![Interactive Comparison](https://img.shields.io/badge/Interactive-Comparison-orange.svg)](https://www.agentically.sh/ai-agentic-frameworks/)
 
-Your comprehensive resource for choosing and implementing AI agent frameworks. Compare 40+ frameworks with real benchmarks, production examples, and migration guides.
+Your comprehensive resource for choosing and implementing AI agent frameworks. Compare 45+ frameworks with real benchmarks, production examples, and migration guides.
 
 ## 🎯 Quick Framework Finder
 
@@ -17,8 +17,13 @@ Not sure which framework to choose? Use our [interactive framework finder](https
 | [LangChain](./frameworks/langchain/) | Flexible LLM apps | 89.5k | MIT | ⭐⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/langchain/) |
 | [LangGraph](./frameworks/langgraph/) | Stateful workflows | 19.9k | MIT | ⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/langgraph/) |
 | [Semantic Kernel](./frameworks/semantic-kernel/) | Enterprise integration | 26.3k | MIT | ⭐⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/semantic-kernel/) |
+| [LlamaIndex Agents](./frameworks/llamaindex/) | RAG with agent capabilities | 44.6k | MIT | ⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/llamaindex/) |
+| [Dify](./frameworks/dify/) | Visual LLMOps platform | 52.1k | Apache-2.0 | ⭐⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/dify/) |
+| [n8n](./frameworks/n8n/) | Workflow automation with AI | 49.5k | Fair-code | ⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/n8n/) |
+| [Langflow](./frameworks/langflow/) | Visual AI workflow builder | 44.1k | MIT | ⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/langflow/) |
+| [Flowise](./frameworks/flowise/) | Low-code LLM app builder | 30.0k | Apache-2.0 | ⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/flowise/) |
 
-[View all 40+ frameworks with filters →](https://www.agentically.sh/ai-agentic-frameworks/all/)
+[View all 45+ frameworks with filters →](https://www.agentically.sh/ai-agentic-frameworks/all/)
 
 ## 📊 This Week's Updates (Oct 22, 2025)
 
@@ -31,6 +36,9 @@ Not sure which framework to choose? Use our [interactive framework finder](https
 
 - [CrewAI vs AutoGen](https://www.agentically.sh/ai-agentic-frameworks/compare/crewai-vs-autogen/) - Which for multi-agent systems?
 - [LangChain vs LangGraph](https://www.agentically.sh/ai-agentic-frameworks/compare/langchain-vs-langgraph/) - When to use each?
+- [Langflow vs Flowise](https://www.agentically.sh/ai-agentic-frameworks/compare/langflow-vs-flowise/) - Visual development platforms
+- [LlamaIndex vs LangChain](https://www.agentically.sh/ai-agentic-frameworks/compare/llamaindex-vs-langchain/) - RAG-focused vs general purpose
+- [Dify vs n8n](https://www.agentically.sh/ai-agentic-frameworks/compare/dify-vs-n8n/) - LLMOps vs workflow automation
 - [Open Source vs Commercial](./comparisons/) - Cost-benefit analysis
 
 ## 📚 Repository Contents
@@ -85,7 +93,7 @@ Tell us what you're building and get recommendations:
 Use our [interactive comparison tool](https://www.agentically.sh/ai-agentic-frameworks/compare/) to compare frameworks side-by-side.
 
 ### Option 3: Browse All Frameworks
-Explore our [complete directory](https://www.agentically.sh/ai-agentic-frameworks/all/) with 40+ frameworks, filterable by:
+Explore our [complete directory](https://www.agentically.sh/ai-agentic-frameworks/all/) with 45+ frameworks, filterable by:
 - Programming language
 - License type
 - GitHub stars
@@ -94,13 +102,14 @@ Explore our [complete directory](https://www.agentically.sh/ai-agentic-framework
 
 ## 📈 Framework Statistics
 
-Updated weekly from our analysis of 40+ frameworks:
+Updated weekly from our analysis of 45+ frameworks:
 
 - **Most Stars**: LangChain (89.5k)
 - **Fastest Growing**: CrewAI (+15% monthly)
-- **Most Production Ready**: AutoGen, LangChain
-- **Best for Beginners**: Flowise, Dify
-- **Enterprise Choice**: AWS Bedrock, Azure AI
+- **Most Production Ready**: Dify, LangChain, Semantic Kernel
+- **Best for Beginners**: Flowise, Langflow, Dify
+- **Enterprise Choice**: Dify, n8n, Semantic Kernel
+- **RAG Specialist**: LlamaIndex (44.6k stars)
 
 [See full statistics →](https://www.agentically.sh/ai-agentic-frameworks/statistics/)
 
