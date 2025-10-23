@@ -15,7 +15,8 @@ Not sure which framework to choose? Use our [interactive framework finder](https
 | [CrewAI](./frameworks/crewai/) | Multi-agent teams | 13.2k | MIT | ⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/crewai/) |
 | [AutoGen](./frameworks/autogen/) | Research & complex workflows | 12.8k | MIT | ⭐⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/autogen/) |
 | [LangChain](./frameworks/langchain/) | Flexible LLM apps | 89.5k | MIT | ⭐⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/langchain/) |
-| [LangGraph](./frameworks/langgraph/) | Stateful workflows | 4.2k | MIT | ⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/langgraph/) |
+| [LangGraph](./frameworks/langgraph/) | Stateful workflows | 19.9k | MIT | ⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/langgraph/) |
+| [Semantic Kernel](./frameworks/semantic-kernel/) | Enterprise integration | 26.3k | MIT | ⭐⭐⭐⭐⭐ | [Details →](https://www.agentically.sh/ai-agentic-frameworks/semantic-kernel/) |
 
 [View all 40+ frameworks with filters →](https://www.agentically.sh/ai-agentic-frameworks/all/)
 
